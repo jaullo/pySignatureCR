@@ -3,7 +3,7 @@ from . import constants
 from .policy import Policy, PolicyId
 from . import template
 from . import context_cr
-from . import get_reversed_rdns_name
+from . import rdns_name
 from . import ns
 from . import utils
 import xmlsig
