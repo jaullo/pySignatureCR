@@ -14,7 +14,7 @@ setup(
     description="Python Signature for Electronic Invoicing in Costa Rica",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/realpython/reader",
+    url="https://github.com/jaullo/pySignatureCR",
     author="Jason Ulloa",
     author_email="jhulloahernandez@gmail.com",
     license="MIT",
