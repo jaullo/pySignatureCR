@@ -13,7 +13,7 @@ import logging
 import datetime
 import pytz
 import random
-from . import get_reversed_rdns_name
+from . rdns_name import get_reversed_rdns_name
 
 __all__ = ['XAdESContext2', 'PolicyId2',
            'PolicyId2Exception', 'create_xades_epes_signature']

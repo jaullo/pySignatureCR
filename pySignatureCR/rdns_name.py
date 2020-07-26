@@ -1,5 +1,5 @@
 import xmlsig
-from lxml import etree
+#from lxml import etree
 __all__ = ['get_reversed_rdns_name']
 
 # This file should be imported after xmlsig or byitself if only XadesContext is used.
