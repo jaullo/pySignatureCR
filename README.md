@@ -2,7 +2,7 @@
 
 > Electronic invoice signature for Ministerio Hacienda
 
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger)  [![Github Issues](http://githubbadges.herokuapp.com/badges/badgerbadgerbadger/issues.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger/issues) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/badges/badgerbadgerbadger/pulls.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger/pulls)  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) 
+[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger)   [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) 
 
 ## Table of Contents
 
@@ -19,15 +19,24 @@
 
 ## Example (Optional)
 
-```javascript
+```python
 // code away!
 
-let generateProject = project => {
-  let code = [];
-  for (let js = 0; js < project.length; js++) {
-    code.push(js);
-  }
-};
+def sign_xml(cert, password, xml, policy_id='https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/'
+             '2016/v4.2/ResolucionComprobantesElectronicosDGT-R-48-2016_4.2.pdf'):
+    root = etree.fromstring(xml)
+    signature = create_xades_epes_signature()
+
+    policy = PolicyId2()
+    policy.id = policy_id
+
+    root.append(signature)
+    ctx = XAdESContext2(policy)
+    certificate = crypto.load_pkcs12(base64.b64decode(cert), password)
+    ctx.load_pkcs12(certificate)
+    ctx.sign(signature)
+
+    return etree.tostring(root, encoding='UTF-8', method='xml', xml_declaration=True, with_tail=False)
 ```
 
 ---
@@ -39,7 +48,7 @@ let generateProject = project => {
 - Please note @1.0.0 that refers to the version you're installing. To install a different version just set the correct branch version and you're ready to go.
 
 ```python
-pip3.7 install git+https://github.com/jaullo/pySignatureCR.git@1.0.0#egg=pysignaturecr
+pip3 install git+https://github.com/jaullo/pySignatureCR.git@1.0.0#egg=pysignaturecr
 ```
 
 ### Clone
@@ -52,6 +61,7 @@ pip3.7 install git+https://github.com/jaullo/pySignatureCR.git@1.0.0#egg=pysigna
 
 ```python
 from pySignatureCR.context_cr import XAdESContext2, PolicyId2, create_xades_epes_signature
+from pySignatureCR.rdns_name import get_reversed_rdns_name
 ```
 
 ## Features
