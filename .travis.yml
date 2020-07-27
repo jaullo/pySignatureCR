@@ -20,6 +20,7 @@ install:
   - pip3 install "pytz"
   - pip3 install "lxml"
   - pip3 install "datetime"
+  - pip3 install "xmlunittest",
   - pip3 install "pytest"
   - pip3 install "pytest-cov"
 script:
