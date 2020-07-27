@@ -1,9 +1,8 @@
 import unittest
+from xmltest import XMLAssertions
 
-from xmlunittest import XmlTestMixin
 
-
-class ContextCRTestCase(unittest.TestCase, XmlTestMixin):
+class ContextCRTestCase(unittest.TestCase, XMLAssertions):
 
     def test_my_custom_test(self):
         # write exactly the same test as in previous example
