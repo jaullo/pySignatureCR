@@ -20,10 +20,10 @@ install:
   - pip3 install "pytz"
   - pip3 install "lxml"
   - pip3 install "datetime"
-  - pip3 install "xmlunittest>=0.3.2,<1.0",
+  - pip3 install "pytest-cov>=1.8.1"
+  - pip3 install "lxml>=2.3"
   - pip3 install "pytest"
-  - pip3 install "pytest-cov"
 script:
   - pytest --cov=./
 after_success:
-  - codecov
+  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then coveralls; fi
