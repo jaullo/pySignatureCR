@@ -23,6 +23,7 @@ install:
   - pip3 install "pytest-cov>=1.8.1"
   - pip3 install "lxml>=2.3"
   - pip3 install "pytest"
+  - pip3 install "unittest-xml"
 script:
   - pytest --cov=./
 after_success:
