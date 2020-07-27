@@ -26,7 +26,7 @@ setup(
     ],
     packages=["pySignatureCR"],
     include_package_data=True,
-    install_requires=["xmlsig","pytz","xmlsig","lxml","datetime"],
+    install_requires=["xmlsig","pytz","lxml","datetime"],
     entry_points={
         "console_scripts": [
             "realpython=reader.__main__:main",

@@ -14,31 +14,6 @@
 - [Support](#support)
 - [License](#license)
 
-
----
-
-## Example (Optional)
-
-```python
-// code away!
-
-def sign_xml(cert, password, xml, policy_id='https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/'
-             '2016/v4.2/ResolucionComprobantesElectronicosDGT-R-48-2016_4.2.pdf'):
-    root = etree.fromstring(xml)
-    signature = create_xades_epes_signature()
-
-    policy = PolicyId2()
-    policy.id = policy_id
-
-    root.append(signature)
-    ctx = XAdESContext2(policy)
-    certificate = crypto.load_pkcs12(base64.b64decode(cert), password)
-    ctx.load_pkcs12(certificate)
-    ctx.sign(signature)
-
-    return etree.tostring(root, encoding='UTF-8', method='xml', xml_declaration=True, with_tail=False)
-```
-
 ---
 
 ## Installation
@@ -72,9 +47,27 @@ from pySignatureCR.rdns_name import get_reversed_rdns_name
 - Supports Electronic Exportation Invoice Signature
 - Supports Electronic Buying Invoice Signature
 
-## Usage (Optional)
-## Documentation (Optional)
+## Usage
 
+```python
+// code away!
+
+def sign_xml(cert, password, xml, policy_id='https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/'
+             '2016/v4.2/ResolucionComprobantesElectronicosDGT-R-48-2016_4.2.pdf'):
+    root = etree.fromstring(xml)
+    signature = create_xades_epes_signature()
+
+    policy = PolicyId2()
+    policy.id = policy_id
+
+    root.append(signature)
+    ctx = XAdESContext2(policy)
+    certificate = crypto.load_pkcs12(base64.b64decode(cert), password)
+    ctx.load_pkcs12(certificate)
+    ctx.sign(signature)
+
+    return etree.tostring(root, encoding='UTF-8', method='xml', xml_declaration=True, with_tail=False)
+```
 ## Contributing
 
 > There are many ways to help or contribute to this project, all of them are welcome.
